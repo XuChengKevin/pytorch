@@ -60,6 +60,9 @@ def dont_parse(schema_line):
         regexp = re.compile(item[0])
         if regexp.search(schema_line):
             return True
+    if "torch.classes" in schema_line:
+        # TODO Fix type __torch__.torch.classes.xxx
+        return True
     return False
 
 
